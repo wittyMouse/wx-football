@@ -1,0 +1,67 @@
+<!--pages/shop-car/index.wxml-->
+<wxs module="tools">
+  var checked = function(keys, key) {
+    return keys.indexOf(key) > -1
+  }
+
+  module.exports = {
+    checked: checked
+  }
+</wxs>
+
+<view class="shop-car">
+  <wm-navigation-bar title="购物车" show-back bind:back="bindBackClick" bind:logo="bindLogoClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="shop-car-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll">
+      <wm-header ext-class="shop-car-header">
+        <view class="shop-car-header-layout-left">客服热线：<text class="text-strong">400-000-1357</text></view>
+
+        <view class="shop-car-header-layout-right">
+          <view class="shop-car-header-text">工作服务时间</view>
+          <view class="shop-car-header-text">周一至周日 13:30-21:00</view>
+        </view>
+      </wm-header>
+
+      <view class="shop-car-empty" hidden="{{!(dataSource && dataSource.length === 0)}}">暂无数据…</view>
+
+      <view class="shop-car-list">
+        <view class="shop-car-item" wx:for="{{dataSource}}" wx:key="id">
+          <view class="shop-car-item-layout-left">
+            <wm-checkbox ext-class="shop-car-item-checkbox" checked="{{tools.checked(selectedRowKeys, item.id)}}" value="{{item.id}}" bind:click="bindCheckClick" />
+          </view>
+
+          <view class="shop-car-item-layout-right">
+              <view class="shop-car-item-line">专家名称：{{item.realname}}</view>
+              <view class="shop-car-item-line">服务类型：<text style="color: #e00;">{{orderMap[item.type].label}}</text></view>
+              <view class="shop-car-item-line">消费金币：<text style="color: #e00;">{{item[orderMap[item.type].prop]}}</text> {{orderMap[item.type].unit}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="shop-car-no-data" hidden="{{dataSource && dataSource.length === 0}}">- 没有更多了 -</view>
+
+      <view class="shop-car-bottom-bar-placeholder"></view>
+
+      <view class="shop-car-bottom-bar shop-car-bottom-bar-safe" style="bottom: {{tabBarHeight}}px;" hidden="{{dataSource && dataSource.length === 0}}">
+        <view class="shop-car-bottom-bar-item">
+          <wm-checkbox ext-class="shop-car-bottom-bar-checkbox" checked="{{checkAll}}" label="全选" value="all" bind:click="bindCheckAll" />
+        </view>
+        <view class="shop-car-bottom-bar-item">
+          <button class="shop-car-bottom-bar-button" bind:tap="bindDeleteClick">删除</button>
+        </view>
+        <view class="shop-car-bottom-bar-item">
+          <text>共 <text style="color: #e00;">{{total}}</text> 金币</text>
+          <!-- <text hidden="{{!totalPoints}}">、 <text style="color: #e00;">{{totalPoints}}</text> 积分</text> -->
+          <button class="shop-car-bottom-bar-pay-button" bind:tap="bindPayClick">结算</button>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

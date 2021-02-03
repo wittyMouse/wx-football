@@ -1,0 +1,77 @@
+/* pages/home/components/wm-table/index.wxss */
+.wm-table {
+  display: table;
+  width: 100%;
+}
+
+.wm-table-body {
+  display: table-row-group;
+}
+
+.wm-table-tr {
+  display: table-row;
+}
+
+.wm-table-th,
+.wm-table-td {
+  display: table-cell;
+}
+
+.wm-table-th {
+  position: relative;
+  font-size: 24rpx;
+  font-weight: 600;
+  text-align: center;
+  color: #c00;
+  line-height: 72rpx;
+  background-color: #f0f0f0;
+}
+
+.wm-table-th::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-bottom: 1px solid #ddd;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.wm-table-td {
+  padding: 0 10rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.wm-table-td.center {
+  text-align: center;
+}
+
+.article-text {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #555;
+  line-height: 72rpx;
+  vertical-align: middle;
+}
+
+.article-new {
+  display: inline-block;
+  margin-left: 8rpx;
+  width: 54rpx;
+  height: 24rpx;
+  vertical-align: middle;
+}
+
+.article-new-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

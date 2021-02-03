@@ -1,0 +1,63 @@
+/* pages/user-center/recharge/index.wxss */
+.recharge-scroll-view {
+  background-color: #ebecf1;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+.recharge-header {
+  font-size: 36rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.wm-table {
+  border-bottom: 2rpx solid #ccc;
+}
+
+.wm-table-tr {
+  display: flex;
+}
+
+.wm-table-th,
+.wm-table-td {
+  flex: 1 0 auto;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.wm-table-th.radio,
+.wm-table-td.radio {
+  flex: 0 0 auto;
+  width: 120rpx;
+}
+
+.wm-table-tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.wm-table-th {
+  color: #e00;
+}
+
+/* .wm-table-td {
+}
+
+.wm-table-radio {
+} */
+
+.recharge-button {
+  display: block;
+  margin: 24rpx auto 0;
+  padding: 0;
+  width: 60% !important;
+  height: 88rpx;
+  border-radius: 12rpx;
+  font-size: 36rpx;
+  font-weight: normal;
+  text-align: center;
+  line-height: 88rpx;
+  color: #fff;
+  background-color: #e00;
+}

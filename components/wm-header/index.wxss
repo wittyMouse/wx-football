@@ -1,0 +1,9 @@
+/* components/wm-header/index.wxss */
+.wm-header {
+  width: 100%;
+  height: 80rpx;
+  background-image: url('https://www.df1668.com/images/bg-title.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 80rpx;
+}

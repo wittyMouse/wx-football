@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "贴士专区",
+  "usingComponents": {
+    "wm-navigation-bar": "/components/wm-navigation-bar/index",
+    "wm-tab-bar": "/components/wm-tab-bar/index",
+    "wm-menu": "/components/wm-menu/index",
+    "wm-float-button-group": "/components/wm-float-button-group/index",
+    "wm-header": "/components/wm-header/index",
+    "wm-pie-chart": "/components/wm-pie-chart/index"
+  }
+}

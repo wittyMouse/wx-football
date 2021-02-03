@@ -1,0 +1,24 @@
+<!--pages/playback/components/wm-playback-tabs/index.wxml-->
+
+<view class="wm-playback-tabs">
+    <view class="wm-playback-tabs-nav">
+        <view class="wm-playback-tabs-nav-list">
+            <!-- 2 = 20 / 2 - (16 / 2) -->
+            <view class="wm-playback-tabs-nav-current" style="transform: translateX({{7.5 * (currentIndex * 20 + 2)}}rpx);"></view>
+
+            <view class="wm-playback-tabs-nav-item" wx:for="{{tabList}}" wx:key="index" data-key="{{item.key}}" bind:tap="bindClick">
+                <view class="wm-playback-tabs-tab-cover">
+                    <image class="wm-playback-tabs-tab-cover-image" src="{{item.itemImage}}" mode="widthFix" />
+                </view>
+                <view>{{item.itemName}}</view>
+                <view>{{item.itemDesc || ''}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="wm-playback-tabs-content">
+      <view class="wm-playback-tabs-content-list" style="transform: translateX({{currentIndex * -750}}rpx);">
+        <slot></slot>
+      </view>
+    </view>
+</view>

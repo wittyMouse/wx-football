@@ -1,0 +1,4 @@
+<!--pages/playback/components/wm-playback-tab-pane/index.wxml-->
+<view class="wm-playback-tab-pane">
+  <slot></slot>
+</view>

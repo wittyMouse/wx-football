@@ -1,0 +1,5 @@
+<!--components/wm-radio/index.wxml-->
+<view class="wm-radio {{extClass}}" style="{{extStyle}}" bind:tap="bindClick">
+  <view class="wm-radio-inner {{_checked ? 'active' : ''}}"></view>
+  <view class="wm-radio-text" wx:if="{{label}}">{{label}}</view>
+</view>

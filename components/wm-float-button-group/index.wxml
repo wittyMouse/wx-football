@@ -1,0 +1,15 @@
+<!--components/wm-float-button-group/index.wxml-->
+<view class="wm-float-button-group">
+    <view class="wm-float-button-group__button" data-target="wechat" bind:tap="bindClick">
+        <image class="wm-float-button-group__image" src="{{assetsURL}}/icon-r01.png" />
+    </view>
+    <view class="wm-float-button-group__button" data-target="phone" bind:tap="bindClick">
+        <image class="wm-float-button-group__image" src="{{assetsURL}}/icon-r02.png" />
+    </view>
+    <view class="wm-float-button-group__button" data-target="car" bind:tap="bindClick">
+        <image class="wm-float-button-group__image" src="{{assetsURL}}/icon-r03.png" />
+    </view>
+    <view class="wm-float-button-group__button" data-target="top" bind:tap="bindClick">
+        <image class="wm-float-button-group__image" src="{{assetsURL}}/icon-r04.png" />
+    </view>
+</view>

@@ -1,0 +1,105 @@
+<!--pages/home/index.wxml-->
+<import src="/templates/index.wxml" />
+
+<wxs module="tools">
+  var filter = function (list) {
+    return list.filter(function (_, index) {
+      return index < 10
+    })
+  }
+  module.exports = {
+    filter: filter
+  }
+</wxs>
+
+<view class="home">
+  <wm-navigation-bar title="巅峰足球" bind:car="bindCarClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="home-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll">
+      <wm-banner bannerList="{{bannerList}}" />
+      <template is="wm-divider" />
+
+      <wm-tabs activeKey="{{activeKey}}" bind:change="bindTabsChange">
+        <wm-tab-item tab="{{item.columnName}}" key="{{item.columnId}}" wx:for="{{articleList}}" wx:key="columnId">
+          <!-- <view class="article-list">
+            <view class="article-item" wx:for="{{tools.filter(item.articleInfoList)}}" wx:for-item="article" wx:key="articleId">
+              <view class="article-text" data-id="{{article.articleId}}" bind:tap="bindArticleClick">{{article.articleTitle}}</view>
+              <view class="article-new" hidden="{{!article.isNew}}">
+                <image class="article-new-image" src="{{assetsURL}}/icon-new.png" />
+              </view>
+            </view>
+          </view> -->
+          <wm-table ext-class="home-wm-table" columns="{{columns}}" dataSource="{{tools.filter(item.articleInfoList)}}" bind:click="bindArticleClick" />
+        </wm-tab-item>
+      </wm-tabs>
+      <template is="wm-divider" />
+
+      <!-- <image src="https://www.df1668.com/static/media/qrcode.0310333e.jpg" show-menu-by-longpress /> -->
+
+      <view class="wm-ranking-list">
+        <view class="wm-ranking-list-header">
+          <image class="wm-ranking-list-title-image" src="{{assetsURL}}/icon-title01.png" />
+        </view>
+
+        <view class="wm-ranking-list-content">
+          <view class="wm-ranking-card {{index === 0 ? 'first-child' : ''}}" wx:for="{{rankingList}}" wx:key="userId" data-id="{{item.userId}}" bind:tap="bindCardClick">
+            <view class="wm-ranking-card-sort">{{index > 2 ? index + 1 : ''}}</view>
+
+            <view class="wm-ranking-card-chart">
+              <wm-pie-chart ext-class="wm-ranking-card-pie-chart" value="{{item.proportion}}"/>
+              <view class="wm-ranking-card-avatar">
+                <image class="wm-ranking-card-avatar-image" src="{{item.avatar}}" />
+              </view>
+            </view>
+
+            <view class="wm-ranking-card-info">
+              <view class="wm-ranking-card-header van-ellipsis">{{item.realname}}</view>
+              <view class="wm-ranking-card-content {{index === 0 ? 'van-multi-ellipsis--l2' : 'van-multi-ellipsis--l3'}}">{{item.description}}</view>
+            </view>
+
+            <view class="wm-ranking-card-button" wx:if="{{index === 0}}">点击进入</view>
+          </view>
+        </view>
+      </view>
+      <template is="wm-divider" />
+
+      <view class="wm-ranking-chart">
+        <view class="wm-ranking-chart-header">
+          <image class="wm-ranking-chart-title-image" src="{{assetsURL}}/icon-title02.png" />
+        </view>
+
+        <view class="wm-ranking-chart-content">
+          <view class="wm-ranking-chart-card">
+            <view class="wm-ranking-chart-card-layout-left">
+              <view class="wm-ranking-chart-card-row" wx:for="{{rankingChartData}}" wx:key="userId">
+                <view class="wm-ranking-chart-card-block" data-id="{{item.userId}}" bind:tap="bindCardClick">
+                  <view class="wm-ranking-chart-card-avatar">
+                    <image class="wm-ranking-chart-card-avatar-image" src="{{item.avatar}}" />
+                  </view>
+                  <view class="wm-ranking-chart-card-name van-ellipsis">{{item.realname}}</view>
+                </view>
+
+                <view class="wm-ranking-chart-card-bar-chart">
+                  <view class="bar-chart-zhong" style="width: {{item['中'] / item['推'] * 100}}%;"></view>
+                  <view class="bar-chart-zou" style="width: {{item['负'] / item['推'] * 100}}%;"></view>
+                  <view class="bar-chart-fu" style="width: {{item['输'] / item['推'] * 100}}%;"></view>
+                </view>
+              </view>
+            </view>
+
+            <view class="wm-ranking-chart-card-layout-right">
+              <view class="wm-ranking-chart-card-grid" wx:for="{{10}}" wx:key="index">{{index * 10}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

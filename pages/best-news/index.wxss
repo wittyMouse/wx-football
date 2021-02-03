@@ -1,0 +1,17 @@
+/* pages/best-news/index.wxss */
+.best-news-scroll-view {
+  background-color: #ebecf1;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+.best-news-background {
+  width: 100%;
+  padding: 20rpx 20rpx 54rpx;
+  box-sizing: border-box;
+}
+
+.best-news-background-image {
+  display: block;
+  width: 100%;
+}

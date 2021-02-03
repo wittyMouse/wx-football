@@ -1,0 +1,19 @@
+<!--pages/best-news/index.wxml-->
+<view class="best-news">
+  <wm-navigation-bar title="重大利好" bind:logo="bindLogoClick" bind:car="bindCarClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="best-news-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll">
+      <view class="best-news-background">
+        <rich-text nodes="{{dataSource.content}}"></rich-text>
+        <!-- <image class="best-news-background-image" src="{{assetsURL}}/pic.png" mode="widthFix" /> -->
+      </view>
+    </scroll-view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

@@ -1,0 +1,32 @@
+<!--pages/tips/index.wxml-->
+<view class="tips">
+  <wm-navigation-bar title="巅峰足球" show-back bind:back="bindBackClick" bind:logo="bindLogoClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="tips-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll">
+      <wm-header ext-class="tips-header">提示页</wm-header>
+
+      <view class="tips-content">
+        <view class="tips-icon-block">
+          <icon class="tips-icon" type="{{type}}" size="104"></icon>
+        </view>
+
+        <view class="tips-text">
+          <view class="tips-title">{{title}}</view>
+          <view class="tips-description">{{message}}</view>
+        </view>
+
+        <view class="tips-button-group">
+          <button class="tips-button" data-target="confirm" bind:tap="bindButtonClick">确定</button>
+          <button class="tips-button" data-target="cancel" bind:tap="bindButtonClick">取消</button>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

@@ -1,0 +1,7 @@
+<!--components/wm-checkbox/index.wxml-->
+<view class="wm-checkbox {{extClass}}" style="{{extStyle}}" bind:tap="bindClick">
+  <view class="wm-checkbox-inner">
+    <image class="wm-checkbox-image" src="{{assetsURL}}/check.png" hidden="{{!_checked}}" />
+  </view>
+  <view class="wm-checkbox-text" wx:if="{{label}}">{{label}}</view>
+</view>

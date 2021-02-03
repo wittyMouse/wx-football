@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wm-popup": "/components/wm-popup/index",
+    "wm-radio-group": "/components/wm-radio-group/index",
+    "wm-radio": "/components/wm-radio/index"
+  }
+}

@@ -1,0 +1,61 @@
+/* components/wm-tab-bar/index.wxss */
+.wm-tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 98rpx;
+}
+
+.wm-tab-bar::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: env(safe-area-inset-bottom);
+  background-color: #fff;
+}
+
+.wm-tab-bar-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.wm-tab-bar-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 98rpx;
+  z-index: -1;
+}
+
+.wm-tab-bar-row {
+  width: 100%;
+  padding: 0 2%;
+  box-sizing: border-box;
+}
+
+.wm-tab-bar-col {
+  display: inline-block;
+  width: calc(100% / 5);
+  padding-top: 12rpx;
+  vertical-align: top;
+}
+
+.wm-tab-bar-col.wm-tab-bar-menu {
+  padding-top: 8rpx;
+}
+
+.wm-tab-bar-col .wm-tab-bar-image {
+  display: block;
+  margin: 0 auto;
+  width: 100rpx;
+  height: 84rpx;
+}
+
+.wm-tab-bar-col.wm-tab-bar-menu .wm-tab-bar-image {
+  width: 84rpx;
+}

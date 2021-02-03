@@ -1,0 +1,4 @@
+/* pages/home/components/wm-tab-item/index.wxss */
+.wm-tab-item {
+  box-shadow: 0 0 12rpx #d0d0d0;
+}

@@ -1,0 +1,144 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "file",
+        "value": "package.json"
+      },
+      {
+        "type": "file",
+        "value": "yarn.lock"
+      },
+      {
+        "type": "folder",
+        "value": "node_modules"
+      },
+      {
+        "type": "prefix",
+        "value": "."
+      }
+    ]
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.14.1",
+  "appid": "wx841fc2381e267f64",
+  "projectname": "wx-football",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "会员中心",
+          "pathName": "pages/user-center/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "会员快速充值",
+          "pathName": "pages/user-center/recharge/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "记录",
+          "pathName": "pages/user-center/record/index",
+          "query": "target=recharge",
+          "scene": null
+        },
+        {
+          "name": "至尊推介",
+          "pathName": "pages/recommend/index",
+          "query": "target=recharge",
+          "scene": null
+        },
+        {
+          "name": "最新线报",
+          "pathName": "pages/latest-clue/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "节目回放",
+          "pathName": "pages/playback/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "提示页",
+          "pathName": "pages/tips/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "购物车",
+          "pathName": "pages/shop-car/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "用户中心",
+          "pathName": "pages/user-center/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "会员资料修改",
+          "pathName": "pages/user-center/modify/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

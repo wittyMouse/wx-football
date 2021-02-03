@@ -1,0 +1,91 @@
+/* pages/playback/components/wm-audio/index.wxss */
+.wm-audio {
+  position: fixed;
+  left: 0;
+  bottom: 88rpx;
+  z-index: 10;
+  width: 100%;
+  height: 100rpx;
+  background-color: #000;
+}
+
+.wm-audio-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.wm-audio-slider {
+  position: relative;
+  width: 100%;
+  height: 12rpx;
+}
+
+.wm-audio-slider-rail,
+.wm-audio-slider-track,
+.wm-audio-slider-step {
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  height: 100%;
+}
+
+.wm-audio-slider-rail {
+  z-index: 1;
+  width: 100%;
+  background-color: #333;
+}
+
+.wm-audio-slider-track {
+  z-index: 3;
+  width: 0;
+  background-color: #c70c0c;
+}
+
+.wm-audio-slider-step {
+  z-index: 2;
+  width: 100%;
+  background-color: #535353;
+}
+
+.wm-audio-slider-handle {
+  position: absolute;
+  top: -4rpx;
+  left: 0;
+  z-index: 4;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #c70c0c;
+  transform: translateX(-50%);
+}
+
+.wm-audio-title {
+  padding: 0 20rpx;
+  font-size: 24rpx;
+  line-height: 64rpx;
+  color: #fff;
+}
+
+.wm-audio-control {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 288rpx;
+  height: 100rpx;
+}
+
+.wm-audio-control-prev,
+.wm-audio-control-play,
+.wm-audio-control-next {
+  display: inline-block;
+  margin: 12rpx 8rpx 8rpx;
+  padding: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+  box-sizing: border-box;
+}
+
+.wm-audio-control-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,135 @@
+<!--pages/recommend/detail/index.wxml-->
+<import src="/templates/index.wxml" />
+
+<wxs module="tools">
+  var isEmpty = function (val) {
+    if (undefined !== val && val !== null && val !== '') {
+      return false
+    }
+    return true
+  }
+
+  var getAmount = function (authorInfo, currentType) {
+    if (currentType === 0 && authorInfo.dayAmount) {
+      return authorInfo.dayAmount + ' 金币'
+    } else if (currentType === 1 && authorInfo.weekAmount) {
+      return authorInfo.weekAmount + ' 金币'
+    } else if (currentType === 3 && authorInfo.dayAmount) {
+      return authorInfo.dayAmount * 10 + ' 积分'
+    } else {
+      return ''
+    }
+  }
+  module.exports = {
+    isEmpty: isEmpty,
+    getAmount: getAmount
+  }
+</wxs>
+
+<view class="recommend-detail">
+  <wm-navigation-bar title="王牌推介" show-back bind:back="bindBackClick" bind:logo="bindLogoClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="recommend-detail-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll" bind:scrolltolower="bindScrollToLower">
+      <wm-header ext-class="recommend-detail-header">总部线人报料</wm-header>
+
+      <view class="author-info">
+        <view class="author-info-layout-left">
+          <view class="author-info-chart">
+            <wm-pie-chart ext-class="author-info-pie-chart" value="{{authorInfo.winning}}" />
+            <view class="author-info-avatar">
+              <image class="author-info-avatar-image" src="{{authorInfo.avatar}}" />
+            </view>
+          </view>
+          <button class="author-info-rule">推介规则服务说明</button>
+        </view>
+
+        <view class="author-info-layout-right">
+          <view class="author-info-line">
+            <view class="author-info-score-label">近五场成绩</view>
+            <image class="author-info-shape" src="{{assetsURL}}/icon-jt02.png" />
+            <view class="author-info-score-wrapper">
+              <view class="author-info-score bg-color-{{resultClassMap[score]}}" wx:for="{{authorInfo.result}}" wx:for-item="score" wx:key="index">{{resultTextMap[score]}}</view>
+            </view>
+          </view>
+          <view class="author-info-description">{{authorInfo.description}}</view>
+        </view>
+      </view>
+
+      <template is="wm-divider" />
+
+      <view class="recommend-list">
+        <view class="recommend-item" wx:for="{{dataSource}}" wx:key="id">
+          <view class="recommend-item-line">时间：{{item.publicationTime}}</view>
+          <view class="recommend-item-line">对阵：（{{item.competition}}）{{item.homeTeam}} VS. {{item.visitingTeam}}</view>
+          <view class="recommend-item-line"><text class="text-color-1">推介：</text><text class="text-color-1">{{item.proposal}}</text></view>
+          <view class="recommend-item-line inline">比分：{{item.score || '--'}}</view>
+          <view class="recommend-item-line inline">结果：<text class="text-color-{{resultClassMap[item.result]}}">{{!tools.isEmpty(item.result) ? resultTextMap[item.result] : '待'}}</text></view>
+        </view>
+      </view>
+
+      <view class="recommend-detail-empty" hidden="{{showLoading || !showNoData}}">暂无数据…</view>
+
+      <view class="recommend-detail-load-more" hidden="{{dataSource.length === 0 || !showMoreLoading}}">加载中...</view>
+
+      <view class="recommend-detail-no-data" hidden="{{dataSource.length === 0 || !showNoMore}}">- 没有更多了 -</view>
+
+      <view class="submit-bar-placeholder"></view>
+
+      <view class="submit-bar" style="bottom: {{tabBarHeight}}px">
+        <view class="submit-bar-list">
+          <!-- <view class="submit-bar-item {{currentType === 2 ? 'active' : ''}}" data-type="{{2}}" bind:tap="bindTypeClick">
+            <view class="submit-bar-label">单场</view>
+            <view class="submit-bar-value">{{authorInfo.dayAmount}}币</view>
+          </view>
+          <view class="submit-bar-item {{currentType === 1 ? 'active' : ''}}" data-type="{{1}}" bind:tap="bindTypeClick">
+            <view class="submit-bar-label">包周</view>
+            <view class="submit-bar-value">{{authorInfo.weekAmount}}币</view>
+          </view>
+          <view class="submit-bar-item {{currentType === 0 ? 'active' : ''}}" data-type="{{0}}" bind:tap="bindTypeClick">
+            <view class="submit-bar-label">单日积分</view>
+            <view class="submit-bar-value">{{authorInfo.dayAmount}}</view>
+          </view> -->
+          <view class="submit-bar-item {{currentType === 0 ? 'active' : ''}}" data-type="{{0}}" bind:tap="bindTypeClick">
+            <view class="submit-bar-label">单日</view>
+            <view class="submit-bar-value">{{authorInfo.dayAmount}}币</view>
+          </view>
+          <view class="submit-bar-item {{currentType === 1 ? 'active' : ''}}" data-type="{{1}}" bind:tap="bindTypeClick">
+            <view class="submit-bar-label">包周</view>
+            <view class="submit-bar-value">{{authorInfo.weekAmount}}币</view>
+          </view>
+          <view class="submit-bar-item {{currentType === 3 ? 'active' : ''}}" data-type="{{3}}" bind:tap="bindTypeClick">
+            <view class="submit-bar-label">单日积分</view>
+            <view class="submit-bar-value">{{authorInfo.dayAmount * 10}}积分</view>
+          </view>
+        </view>
+        <view class="submit-bar-button-group">
+          <button class="submit-bar-button" data-target="buy" bind:tap="bindButtonClick">立即订购</button>
+          <button class="submit-bar-button" data-target="car" bind:tap="bindButtonClick">加入购物车</button>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="tips-modal-wrapper" wx:if="{{showTipsModal}}">
+    <view class="tips-modal-mask" bind:tap="bindTipsModalClose"></view>
+    <view class="tips-modal">
+      <view class="tips-modal-header">
+        <view class="tips-modal-title">购买提示</view>
+      </view>
+      <view class="tips-modal-content">
+        <view class="">购买该服务需要 {{tools.getAmount(authorInfo, currentType)}}</view>
+        <view class="">你目前拥有金币：{{userInfo.balance}} 个</view>
+      </view>
+      <view class="tips-modal-footer">
+        <view class="tips-modal-button" bind:tap="bindBuyClick">确定购买</view>
+      </view>
+    </view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

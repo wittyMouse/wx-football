@@ -1,0 +1,53 @@
+/* pages/home/components/wm-tabs/index.wxss */
+.wm-tabs {
+}
+
+.wm-tabs-nav {
+  background-color: #fff;
+}
+
+.wm-tabs-nav-list {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.wm-tabs-nav-current {
+  position: absolute;
+  left: -12rpx;
+  bottom: -14rpx;
+  width: 24rpx;
+  height: 14rpx;
+  z-index: 10;
+  transition: transform 0.3s;
+}
+
+.wm-tabs-nav-current-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ant-tabs-nav-item {
+  padding: 0 13.5rpx;
+  height: 80rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #c7000b;
+  box-sizing: border-box;
+}
+
+.ant-tabs-nav-item.active {
+  color: #fff;
+  background-color: #c7000b;
+}
+
+.wm-tabs-content {
+}
+
+.wm-tabs-content-list {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.3s;
+}

@@ -1,0 +1,45 @@
+/* pages/playback/index.wxss */
+.playback-scroll-view {
+  background-color: #ebecf1;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+/* .playback-list {
+
+} */
+
+.playback-list-item {
+  position: relative;
+  padding: 24rpx 0 24rpx 64rpx;
+  font-size: 28rpx;
+  color: #555;
+}
+
+.playback-list-item:nth-child(odd) {
+  background-color: #fff;
+}
+
+.playback-list-item:nth-child(even) {
+  background-color: #ebecf1;
+}
+
+.playback-play {
+  position: absolute;
+  top: 50%;
+  left: 32rpx;
+  width: 10rpx;
+  height: 17rpx;
+  transform: translateY(-50%);
+}
+
+.playback-play-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.wm-audio-placeholder {
+  width: 100%;
+  height: 100rpx;
+}

@@ -1,0 +1,4 @@
+<!--pages/home/components/wm-tab-item/index.wxml-->
+<view class="wm-tab-item {{extClass}}">
+  <slot></slot>
+</view>

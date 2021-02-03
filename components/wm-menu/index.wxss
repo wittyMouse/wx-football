@@ -1,0 +1,273 @@
+/* components/wm-menu/index.wxss */
+.wm-login {
+  background-image: url("https://www.df1668.com/images/bg-login.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  background-color: #fff;
+}
+
+.wm-login-layout-left {
+  display: inline-block;
+  padding-top: 340rpx;
+  width: 300rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 40rpx;
+  text-shadow: 0 0 8rpx #fff, 0 0 8rpx #fff;
+  vertical-align: top;
+}
+
+.wm-login-number {
+  font-size: 40rpx;
+  color: #e00e00;
+  font-weight: 600;
+}
+
+.wm-login-layout-right {
+  display: inline-block;
+  width: 450rpx;
+  padding: 24rpx 0;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.wm-login-form-item {
+  padding: 6rpx 0;
+}
+
+.wm-login-form-input {
+  position: relative;
+  padding: 0 12rpx 0 68rpx;
+  width: 400rpx;
+  height: 72rpx;
+  font-size: 32rpx;
+  color: #888;
+  border: 2rpx solid #ddd;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+}
+
+.wm-login-form-input.captcha {
+  display: inline-block;
+  width: 220rpx;
+  vertical-align: middle;
+}
+
+.wm-login-form-input::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 14rpx;
+  left: 12rpx;
+  width: 44rpx;
+  height: 44rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.wm-login-form-input.account::after {
+  background-image: url('https://www.df1668.com/images/icon-login01.png');
+}
+
+.wm-login-form-input.password::after {
+  background-image: url('https://www.df1668.com/images/icon-login02.png');
+}
+
+.wm-login-form-input.captcha::after {
+  background-image: url('https://www.df1668.com/images/icon-login02.png');
+}
+
+.wm-login-form-captcha {
+  margin-left: 12rpx;
+  width: 168rpx;
+  height: 56rpx;
+  vertical-align: middle;
+}
+
+.wm-login-form-radio-group-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.wm-login-form-radio-text {
+  font-size: 24rpx;
+  color: #888;
+  line-height: 60rpx;
+}
+
+.wm-login-form-button {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  width: 240rpx !important;
+  height: 72rpx;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  font-weight: normal;
+  color: #fff;
+  line-height: 72rpx;
+  background-color: #e00;
+}
+
+.wm-login-form-link {
+  position: relative;
+  width: 400rpx;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 66rpx;
+  color: #e00;
+}
+
+.wm-login-form-link::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 1px solid #e00;
+  border-radius: 12rpx;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.wm-menu {
+
+}
+
+.wm-menu-welcome {
+  text-align: center;
+}
+
+.wm-menu-welcome-item {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.wm-menu-welcome-item:not(:last-child) {
+  padding-right: 40rpx;
+}
+
+.wm-menu-welcome-text {
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 92rpx;
+}
+
+.wm-menu-high-light-text {
+  font-weight: bold;
+  color: #e00;
+}
+
+.wm-menu-button {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  width: 104rpx !important;
+  height: 72rpx;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #fff;
+  line-height: 72rpx;
+  background-color: #000;
+}
+
+.wm-menu-list {
+  position: relative;
+  width: 100%;
+}
+
+.wm-menu-list::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-top: 1px solid #ddd;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.wm-menu-item {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 3);
+  height: 90rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 90rpx;
+  color: #555;
+  vertical-align: middle;
+}
+
+.wm-menu-item::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.wm-menu-item:nth-of-type(3n)::after {
+  border-right: 0;
+}
+
+.wm-menu-coin-icon {
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: middle;
+  margin-right: 8rpx;
+}
+
+.wm-menu-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.wm-menu-contact-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 12rpx;
+}
+
+.wm-menu-contact-text {
+  font-size: 32rpx;
+  color: #555;
+}
+
+.wm-menu-contact-high-light-text {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #e00;
+}

@@ -1,0 +1,105 @@
+<!--pages/user-center/modify/index.wxml-->
+<import src="/templates/index.wxml" />
+
+<view class="modify">
+  <wm-navigation-bar title="会员中心" show-back bind:back="bindBackClick" bind:logo="bindLogoClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="modify-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll">
+      <wm-header ext-class="modify-header">会员资料修改</wm-header>
+
+      <view class="modify-form">
+        <form bind:submit="bindSubmit">
+          <view class="modify-form-item">
+            <view class="modify-form-label">
+              <!-- <text class="modify-form-required" space="nbsp">* </text> -->
+              <text space="nbsp">用 户 名:</text>
+            </view>
+            <view class="modify-form-value">
+              <text class="strong-text">{{userInfo.account}}</text>
+            </view>
+          </view>
+
+          <!-- <view class="modify-form-item">
+            <view class="modify-form-label">
+              <text class="modify-form-required" space="nbsp">* </text>
+              <text space="nbsp">昵    称:</text>
+            </view>
+            <view class="modify-form-value">
+              <input class="modify-form-input" />
+            </view>
+          </view> -->
+
+          <view class="modify-form-item">
+            <view class="modify-form-label">
+              <!-- <text class="modify-form-required" space="nbsp">* </text> -->
+              <text space="nbsp">原密码:</text>
+            </view>
+            <view class="modify-form-value">
+              <input class="modify-form-input" password name="oldPwd" value="{{modifyFormData.oldPwd}}"
+                focus="{{modifyFormFocus.pwd}}" confirm-type="next" adjust-position="{{adjustPosition}}"
+                data-field="oldPwd" data-next="newPwd" bind:input="bindInput" bind:focus="bindFocus"
+                bind:blur="bindBlur" bind:confirm="bindConfirm"
+                bind:keyboardheightchange="bindKeyboardHeightChange" />
+            </view>
+          </view>
+
+          <view class="modify-form-item">
+            <view class="modify-form-label">
+              <!-- <text class="modify-form-required" space="nbsp">* </text> -->
+              <text space="nbsp">新密码:</text>
+            </view>
+            <view class="modify-form-value">
+              <input class="modify-form-input" password name="newPwd" value="{{modifyFormData.newPwd}}"
+                focus="{{modifyFormFocus.newPwd}}" confirm-type="next" adjust-position="{{adjustPosition}}"
+                data-field="newPwd" data-next="confirmPwd" bind:input="bindInput" bind:focus="bindFocus"
+                bind:blur="bindBlur" bind:confirm="bindConfirm"
+                bind:keyboardheightchange="bindKeyboardHeightChange" />
+            </view>
+          </view>
+
+          <view class="modify-form-item">
+            <view class="modify-form-label">
+              <!-- <text class="modify-form-required" space="nbsp">* </text> -->
+              <text space="nbsp">确认新密码:</text>
+            </view>
+            <view class="modify-form-value">
+              <input class="modify-form-input" password name="confirmPwd" value="{{modifyFormData.confirmPwd}}"
+                focus="{{modifyFormFocus.confirmPwd}}" confirm-type="next" adjust-position="{{adjustPosition}}"
+                data-field="confirmPwd" data-next="verificationCode" bind:input="bindInput" bind:focus="bindFocus"
+                bind:blur="bindBlur" bind:confirm="bindConfirm"
+                bind:keyboardheightchange="bindKeyboardHeightChange" />
+            </view>
+          </view>
+
+          <view class="modify-form-item captcha">
+            <view class="modify-form-label">
+              <text space="nbsp">验 证 码:</text>
+            </view>
+            <view class="modify-form-value">
+              <input class="modify-form-input" maxlength="{{4}}" name="verificationCode"
+                value="{{modifyFormData.verificationCode}}" focus="{{modifyFormFocus.verificationCode}}"
+                confirm-type="done" adjust-position="{{adjustPosition}}" data-field="verificationCode"
+                bind:input="bindInput" bind:focus="bindFocus" bind:blur="bindBlur" bind:confirm="bindConfirm"
+                bind:keyboardheightchange="bindKeyboardHeightChange" />
+              <input hidden="{{true}}" name="verificationKey" value="{{modifyFormData.verificationKey}}" />
+              <image class="modify-form-captcha" src="{{captchaImage}}" data-target="captcha" bind:tap="bindClick" />
+            </view>
+          </view>
+
+          <view class="modify-form-item">
+            <button class="modify-form-button" form-type="submit">确定提交</button>
+          </view>
+        </form>
+      </view>
+
+      <template is="wm-divider" />
+    </scroll-view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

@@ -1,0 +1,151 @@
+<!--pages/user-center/index.wxml-->
+<import src="/templates/index.wxml" />
+
+<wxs module="tools">
+  var getCurrentDate = function () {
+    var date = getDate()
+    var hour = date.getHours();
+    if (hour >= 6 && hour < 8) {
+      return '早上'
+    } else if (hour >= 8 && hour < 11) {
+      return '上午'
+    } else if (hour >= 11 && hour < 13) {
+      return '中午'
+    } else if (hour >= 13 && hour < 19) {
+      return '下午'
+    } else if (hour >= 19 || hour < 6){
+      return '晚上'
+    }
+  }
+
+  var isCheckIn = function (checkInInfo, num) {
+    if (JSON.stringify(checkInInfo) === '{}') {
+      return false
+    }
+    if (checkInInfo.dayNum === 0) {
+      return false
+    } else if (checkInInfo.dayNum % 7 < num) {
+      if (checkInInfo.dayNum % 7 === 0 && checkInInfo.isSignIn) {
+        return true
+      }
+      return false
+    }
+    return true
+  }
+
+  module.exports = {
+    getCurrentDate: getCurrentDate,
+    isCheckIn: isCheckIn
+  }
+</wxs>
+
+<view class="user-center">
+  <wm-navigation-bar title="会员中心" show-back bind:back="bindBackClick" bind:logo="bindLogoClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="user-center-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll">
+      <wm-header ext-class="user-center-header">
+        <view class="user-center-header-layout-left">客服热线：<text class="text-strong">400-000-1357</text></view>
+
+        <view class="user-center-header-layout-right">
+          <view class="user-center-header-text">工作服务时间</view>
+          <view class="user-center-header-text">周一至周日 13:30-21:00</view>
+        </view>
+      </wm-header>
+
+      <view class="user-center-welcome">
+        <view class="user-center-welcome-text">{{tools.getCurrentDate()}}好，<text class="text-1">{{userInfo.account}}</text>【身份：注册会员】</view>
+        <view class="user-center-welcome-text">您拥有金币：<text class="text-1">{{userInfo.balance}}</text> 个， 积分：<text class="text-2">{{userInfo.integral}}</text> 分</view>
+      </view>
+
+      <template is="wm-divider" />
+
+      <view class="user-center-panel">
+        <view class="user-center-panel-header">
+          <view class="title-1">签到有奖</view>
+        </view>
+        <view class="user-center-panel-content">
+          <view class="user-center-check-in-box">
+            <view class="user-center-check-in-box-header">
+              <view class="user-center-check-in-box-text" hidden="{{checkInInfo.isSignIn}}">请签到！可获{{checkInInfo.dayNum % 7 === 6 ? 30 : 10}}积分</view>
+              <view class="user-center-check-in-box-text" hidden="{{!checkInInfo.isSignIn}}">签到成功！已获{{checkInInfo.dayNum % 7 === 0 ? 30 : 10}}积分</view>
+              <view class="user-center-check-in-box-tips">注：签到第7天可获30积分，每周共90积分</view>
+            </view>
+            <view class="user-center-check-in-box-content">
+              <view class="coin-block" wx:for="{{7}}" wx:key="index">
+                <view class="coin-wrapper">
+                  <image class="coin-image" src="{{assetsURL}}/icon-qd01.png" hidden="{{!tools.isCheckIn(checkInInfo, item + 1)}}" />
+                  <image class="coin-image" src="{{assetsURL}}/icon-qd02.png" hidden="{{tools.isCheckIn(checkInInfo, item + 1)}}" />
+                </view>
+                <view class="coin-text">{{index === 6 ? 30 : 10}}</view>
+              </view>
+            </view>
+            <view class="user-center-check-in-box-footer">
+              <button class="user-center-check-in-box-button" bind:tap="bindCheckInClick" hidden="{{checkInInfo.isSignIn}}">签到</button>
+              <button class="user-center-check-in-box-button" style="background-color: #aaa;" hidden="{{!checkInInfo.isSignIn}}">今日已签到</button>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <template is="wm-divider" />
+
+      <view class="user-center-panel">
+        <view class="user-center-panel-header">
+          <view class="title-2">快捷通道</view>
+        </view>
+        <view class="user-center-panel-content">
+          <view class="user-center-nav-bar">
+            <view class="user-center-nav-item" data-url="/pages/user-center/recharge/index" bind:tap="bindNavClick">
+              <text class="strong-text">会员快速充值</text>
+              <!-- <view class="user-center-nav-bar-message"></view> -->
+            </view>
+            <view class="user-center-nav-item" data-url="/pages/user-center/record/index?target=recharge" bind:tap="bindNavClick">
+              <text>充值与消费记录</text>
+              <!-- <view class="user-center-nav-bar-message"></view> -->
+            </view>
+            <view class="user-center-nav-item" data-url="/pages/user-center/modify/index" bind:tap="bindNavClick">
+              <text>会员资料修改</text>
+              <!-- <view class="user-center-nav-bar-message"></view> -->
+            </view>
+            <view class="user-center-nav-item" data-url="/pages/user-center/record/index?target=clue" bind:tap="bindNavClick">
+              <text>贴士专区订单</text>
+              <!-- <view class="user-center-nav-bar-message"></view> -->
+            </view>
+            <view class="user-center-nav-item" data-url="/pages/user-center/record/index?target=recommend" bind:tap="bindNavClick">
+              <text>王牌推介订单</text>
+              <!-- <view class="user-center-nav-bar-message"></view> -->
+            </view>
+            <view class="user-center-nav-item" data-url="/pages/user-center/record/index?target=journal" bind:tap="bindNavClick">
+              <text>所有流水记录</text>
+              <!-- <view class="user-center-nav-bar-message"></view> -->
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <template is="wm-divider" />
+
+      <view class="user-center-panel">
+        <view class="user-center-panel-header">
+          <view class="title-3">会员资讯</view>
+        </view>
+        <view class="user-center-panel-content">
+          <view class="user-center-article-list">
+            <view class="user-center-article-item" data-id="" bind:tap="bindArticleClick">
+              <view class="user-center-article-text">2月20日推介出料情况</view>
+              <view class="user-center-article-time">02-19</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </scroll-view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

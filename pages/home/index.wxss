@@ -1,0 +1,416 @@
+/* pages/home/index.wxss */
+.home-scroll-view {
+  background-color: #ebecf1;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+.home-wm-table {
+  min-height: 792rpx;
+  padding: 20rpx 0;
+  background-color: #fff;
+}
+
+/* .article-list {
+  padding: 20rpx 24rpx;
+  height: 600rpx;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.article-item {
+
+}
+
+.article-text {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #555;
+  line-height: 60rpx;
+  vertical-align: middle;
+}
+
+.article-new {
+  display: inline-block;
+  margin-left: 8rpx;
+  width: 54rpx;
+  height: 24rpx;
+  vertical-align: middle;
+}
+
+.article-new-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+} */
+
+.wm-ranking-list {
+}
+
+.wm-ranking-list-header {
+  width: 100%;
+  height: 70rpx;
+  padding: 32rpx 0;
+}
+
+.wm-ranking-list-title-image {
+  display: block;
+  margin: 0 auto;
+  width: 360rpx;
+  height: 70rpx;
+}
+
+.wm-ranking-list-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wm-ranking-card {
+  flex: 0 0 auto;
+  position: relative;
+  margin: 0 15rpx 30rpx;
+  padding: 20rpx 0 0;
+  width: 220rpx;
+  height: 380rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  box-shadow: 0 0 12rpx #d0d0d0;
+}
+
+.wm-ranking-card.first-child {
+  display: flex;
+  margin: 0 16rpx 30rpx;
+  padding: 20rpx 0 30rpx;
+  width: 718rpx;
+  height: unset;
+  border-radius: 100rpx 20rpx 20rpx 100rpx;
+}
+
+.wm-ranking-card-sort {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 48rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 1.6;
+  color: #555;
+}
+
+.wm-ranking-card:nth-child(1) .wm-ranking-card-sort,
+.wm-ranking-card:nth-child(2) .wm-ranking-card-sort,
+.wm-ranking-card:nth-child(3) .wm-ranking-card-sort {
+  top: 4rpx;
+  width: 48rpx;
+  height: 64rpx;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100%;
+}
+
+.wm-ranking-card:nth-child(1) .wm-ranking-card-sort {
+  width: 56rpx;
+  height: 72rpx;
+  background-image: url("https://www.df1668.com/images/icon-pm01.png");
+}
+
+.wm-ranking-card:nth-child(2) .wm-ranking-card-sort {
+  background-image: url("https://www.df1668.com/images/icon-pm02.png");
+}
+
+.wm-ranking-card:nth-child(3) .wm-ranking-card-sort {
+  background-image: url("https://www.df1668.com/images/icon-pm03.png");
+}
+
+.wm-ranking-card-chart {
+  position: relative;
+  text-align: center;
+}
+
+.wm-ranking-card.first-child .wm-ranking-card-chart {
+  flex: 0 0 auto;
+  width: 212rpx;
+}
+
+.wm-ranking-card-pie-chart .wm-pie-chart-percentage {
+  left: 60%;
+  bottom: -6rpx;
+  z-index: 5;
+  transform: translateX(0);
+}
+
+.wm-ranking-card-avatar {
+  position: absolute;
+  top: 12rpx;
+  left: 50%;
+  border: 8rpx solid #fff;
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.wm-ranking-card-avatar-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.wm-ranking-card-info {
+}
+
+.wm-ranking-card.first-child .wm-ranking-card-info {
+  flex: 0 0 auto;
+}
+
+.wm-ranking-card-header {
+  position: relative;
+  margin: 0 16rpx;
+  padding: 28rpx 0 0 0;
+  font-size: 28rpx;
+  text-align: center;
+  font-weight: normal;
+  line-height: 48rpx;
+  color: #555;
+}
+
+.wm-ranking-card-header::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-bottom: 1px solid #ddd;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.wm-ranking-card.first-child .wm-ranking-card-header {
+  width: 442rpx;
+  padding: 0 16rpx 12rpx;
+  text-align: left;
+  font-size: 32rpx;
+}
+
+.wm-ranking-card-content {
+  margin: 0 12rpx;
+  padding: 4rpx 0 0;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 1.6;
+}
+
+.wm-ranking-card.first-child .wm-ranking-card-content {
+  width: 442rpx;
+  padding: 8rpx 16rpx 0;
+  margin: 0 16rpx;
+}
+
+.wm-ranking-card-button {
+  position: absolute;
+  right: 20rpx;
+  bottom: 8rpx;
+  margin: 0;
+  padding: 0;
+  width: 136rpx !important;
+  height: 48rpx;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  font-weight: normal;
+  text-align: center;
+  line-height: 48rpx;
+  color: #fff;
+  background-color: #555;
+}
+
+.wm-ranking-chart {
+}
+
+.wm-ranking-chart-header {
+  width: 100%;
+  height: 70rpx;
+  padding: 32rpx 0;
+}
+
+.wm-ranking-chart-title-image {
+  display: block;
+  margin: 0 auto;
+  width: 360rpx;
+  height: 70rpx;
+}
+
+.wm-ranking-chart-content {
+  padding-bottom: 32rpx;
+}
+
+.wm-ranking-chart-card {
+  position: relative;
+  margin: 0 auto;
+  padding: 24rpx 0;
+  width: 720rpx;
+  border-radius: 12rpx;
+  background-color: #fff;
+  box-shadow: 0 0 12rpx #d0d0d0;
+}
+
+.wm-ranking-chart-card-layout-left {
+}
+
+.wm-ranking-chart-card-row {
+  display: flex;
+}
+
+.wm-ranking-chart-card-block {
+  width: 216rpx;
+  height: 140rpx;
+}
+
+.wm-ranking-chart-card-avatar {
+  position: relative;
+  margin: 0 auto;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.wm-ranking-chart-card-avatar::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.wm-ranking-chart-card-avatar-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.wm-ranking-chart-card-name {
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 1.6;
+  color: #555;
+}
+
+.wm-ranking-chart-card-bar-chart {
+  padding: 25rpx 0;
+  width: calc(100% - 216rpx);
+  height: 140rpx;
+  box-sizing: border-box;
+}
+
+.bar-chart-zhong,
+.bar-chart-zou,
+.bar-chart-fu {
+  /* position: relative; */
+  width: 0;
+  height: 30rpx;
+  transition: width 0.3s;
+}
+
+/* .bar-chart-zhong::after,
+.bar-chart-zou::after,
+.bar-chart-fu::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 24rpx;
+  color: #555;
+  transform: translateY(-50%);
+}
+
+.bar-chart-zhong::after {
+  content: '中';
+}
+.bar-chart-zou::after {
+  content: '走';
+}
+.bar-chart-fu::after {
+  content: '负';
+} */
+
+.bar-chart-zhong {
+  background-color: #c7000b;
+}
+
+.bar-chart-zou {
+  background-color: #7fedbd;
+}
+
+.bar-chart-fu {
+  background-color: #5b5b5b;
+}
+
+.wm-ranking-chart-card-layout-right {
+  display: flex;
+  position: absolute;
+  top: 24rpx;
+  right: 0;
+  width: calc(100% - 216rpx);
+  margin-left: 216rpx;
+  box-sizing: border-box;
+}
+
+.wm-ranking-chart-card-layout-right::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.wm-ranking-chart-card-grid {
+  flex: 1 0 auto;
+  position: relative;
+  width: calc(100% / 10);
+  height: 1400rpx;
+  font-size: 20rpx;
+  color: #aaa;
+}
+
+.wm-ranking-chart-card-grid::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-left: 1px solid #ededed;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}

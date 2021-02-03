@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/shop-car/index",
+    "pages/recommend/index",
+    "pages/recommend/detail/index",
+    "pages/latest-clue/index",
+    "pages/latest-clue/profile/index",
+    "pages/latest-clue/detail/index",
+    "pages/user-center/index",
+    "pages/user-center/recharge/index",
+    "pages/user-center/record/index",
+    "pages/user-center/modify/index",
+    "pages/user-center/register/index",
+    "pages/best-news/index",
+    "pages/playback/index",
+    "pages/tips/index",
+    "pages/web-view/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "巅峰足球",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

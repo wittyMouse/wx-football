@@ -1,0 +1,44 @@
+/* components/wm-popup/index.wxss */
+.wm-popup {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-color: #fff;
+  transition: transform 0.3s;
+  overflow: hidden;
+}
+
+.wm-popup.show {
+  -webkit-transform: translate(0);
+  transform: translate(0);
+}
+
+.wm-popup-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.wm-popup-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  transition: all 0.3s;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.wm-popup-mask.hidden {
+  opacity: 0;
+  -webkit-transform: scale3d(1, 1, 0);
+  transform: scale3d(1, 1, 0);
+}

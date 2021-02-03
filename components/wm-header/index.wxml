@@ -1,0 +1,4 @@
+<!--components/wm-header/index.wxml-->
+<view class="wm-header {{extClass}}">
+  <slot></slot>
+</view>

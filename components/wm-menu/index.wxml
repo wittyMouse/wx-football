@@ -1,0 +1,100 @@
+<!--components/wm-menu/index.wxml-->
+<wm-popup ext-style="bottom: {{keyboardHeight || tabBarHeight}}px;" show="{{show}}" safe="{{!showKeyboard}}"
+    bind:close="bindClose" bind:closed="bindClosed">
+    <view class="wm-login" hidden="{{isLogin}}">
+        <view class="wm-login-layout-left">
+            <view>【 客服热线 】</view>
+            <view class="wm-login-number">400-000-1357</view>
+        </view>
+
+        <view class="wm-login-layout-right">
+            <form bind:submit="bindSubmit">
+                <view class="wm-login-form-item">
+                    <input class="wm-login-form-input account" name="account" value="{{loginFormData.account}}"
+                        focus="{{loginFormFocus.account}}" confirm-type="next" confirm-hold
+                        adjust-position="{{adjustPosition}}" data-field="account" data-next="pwd" bind:input="bindInput"
+                        bind:focus="bindFocus" bind:blur="bindBlur" bind:confirm="bindConfirm"
+                        bind:keyboardheightchange="bindKeyboardHeightChange" />
+                </view>
+
+                <view class="wm-login-form-item">
+                    <input class="wm-login-form-input password" password name="pwd" value="{{loginFormData.pwd}}"
+                        focus="{{loginFormFocus.pwd}}" confirm-type="next" adjust-position="{{adjustPosition}}"
+                        data-field="pwd" data-next="verificationCode" bind:input="bindInput" bind:focus="bindFocus"
+                        bind:blur="bindBlur" bind:confirm="bindConfirm"
+                        bind:keyboardheightchange="bindKeyboardHeightChange" />
+                </view>
+
+                <view class="wm-login-form-item">
+                    <input class="wm-login-form-input captcha" maxlength="{{4}}" name="verificationCode"
+                        value="{{loginFormData.verificationCode}}" focus="{{loginFormFocus.verificationCode}}"
+                        confirm-type="done" adjust-position="{{adjustPosition}}" data-field="verificationCode"
+                        bind:input="bindInput" bind:focus="bindFocus" bind:blur="bindBlur" bind:confirm="bindConfirm"
+                        bind:keyboardheightchange="bindKeyboardHeightChange" />
+                    <input hidden="{{true}}" name="verificationKey" value="{{loginFormData.verificationKey}}" />
+                    <image class="wm-login-form-captcha" src="{{captchaImage}}" data-target="captcha" bind:tap="bindClick" />
+                </view>
+
+                <view class="wm-login-form-item">
+                    <view class="wm-login-form-radio-group-wrapper">
+                        <view class="wm-login-form-radio-text">有效期：</view>
+                        <wm-radio-group name="type" value="{{loginFormData.type}}" data-field="type"
+                            bind:change="bindChange">
+                            <wm-radio label="一个月" value="2" />
+                            <wm-radio ext-style="margin-left: 12rpx;" label="一周" value="1" />
+                            <wm-radio ext-style="margin-left: 12rpx;" label="一天" value="0" />
+                        </wm-radio-group>
+                    </view>
+                </view>
+
+                <view class="wm-login-form-item">
+                    <button class="wm-login-form-button" form-type="submit">确定登录</button>
+                </view>
+
+                <view class="wm-login-form-item">
+                    <view class="wm-login-form-link" data-target="register" bind:tap="bindClick">立即注册，享受巅峰！</view>
+                </view>
+            </form>
+        </view>
+    </view>
+
+    <view class="wm-menu" hidden="{{!isLogin}}">
+      <view class="wm-menu-welcome">
+        <view class="wm-menu-welcome-item">
+          <view class="wm-menu-welcome-text">你好！<text class="wm-menu-high-light-text">{{userInfo.account}}</text></view>
+        </view>
+        <view class="wm-menu-welcome-item">
+          <view class="wm-menu-welcome-text">当前金币数量：<text class="wm-menu-high-light-text">{{userInfo.balance}}</text></view>
+        </view>
+        <view class="wm-menu-welcome-item">
+          <button class="wm-menu-button" bind:tap="bindLogOut">退出</button>
+        </view>
+      </view>
+      <view class="wm-menu-list">
+        <view class="wm-menu-item" data-target="record" data-page="recharge" bind:tap="bindMenuClick">
+          <text>充值与消费记录</text>
+        </view>
+        <view class="wm-menu-item" data-target="record" data-page="clue" bind:tap="bindMenuClick">
+          <text>贴士专区订单</text>
+        </view>
+        <view class="wm-menu-item" data-target="record" data-page="recommend" bind:tap="bindMenuClick">
+          <text>王牌推介订单</text>
+        </view>
+        <view class="wm-menu-item" data-target="record" data-page="journal" bind:tap="bindMenuClick">
+          <text>所有流水记录</text>
+        </view>
+        <view class="wm-menu-item" data-target="modify" bind:tap="bindMenuClick">
+          <text>会员资料修改</text>
+        </view>
+        <view class="wm-menu-item" data-target="recharge" bind:tap="bindMenuClick">
+          <image class="wm-menu-coin-icon" src="{{assetsURL}}/icon-add01.png" />
+          <text style="color: #e00;">会员快速充值</text>
+        </view>
+      </view>
+      <view class="wm-menu-contact">
+        <image class="wm-menu-contact-icon" src="{{assetsURL}}/icon-tel.png" />
+        <text class="wm-menu-contact-text">客服热线：</text>
+        <text class="wm-menu-contact-high-light-text">400-000-1357</text>
+      </view>
+    </view>
+</wm-popup>

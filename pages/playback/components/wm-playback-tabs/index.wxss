@@ -1,0 +1,87 @@
+/* pages/playback/components/wm-playback-tabs/index.wxss */
+
+/* .wm-playback-tabs {
+
+} */
+
+.wm-playback-tabs-nav {
+  background-color: #fff;
+}
+
+.wm-playback-tabs-nav-list {
+  position: relative;
+  display: flex;
+}
+
+.wm-playback-tabs-nav-list::after {
+  content: " ";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-bottom: 1px solid #ccc;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.wm-playback-tabs-nav-current {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 16%;
+  height: 6rpx;
+  background-color: #e00e00;
+  transition: transform 0.3s;
+}
+
+.wm-playback-tabs-nav-item {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 12rpx 0;
+  width: 20%;
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 32rpx;
+  color: #999;
+}
+
+.wm-playback-tabs-nav-item:not(:last-child)::after {
+  content: " ";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-right: 1px solid #ccc;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.wm-playback-tabs-tab-cover {
+  margin: 0 auto 12rpx;
+  width: 60%;
+}
+
+.wm-playback-tabs-tab-cover-image {
+  display: block;
+  width: 100%;
+}
+
+.wm-playback-tabs-content {
+
+}
+
+.wm-playback-tabs-content-list {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.3s;
+}

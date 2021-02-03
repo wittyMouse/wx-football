@@ -1,0 +1,243 @@
+/* pages/recommend/index.wxss */
+.recommend-scroll-view {
+  background-color: #ebecf1;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+.recommend-header {
+  font-size: 36rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.recommend-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 88rpx;
+  background-color: #fff;
+}
+
+.recommend-nav-bar::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-bottom: 1px solid #ddd;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.recommend-nav-item {
+  display: inline-block;
+  position: relative;
+  width: calc(100% / 3);
+  height: 88rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 88rpx;
+  color: #555;
+}
+
+.recommend-nav-item:not(:last-child)::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-right: 1px solid #ddd;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.recommend-nav-bar-block {
+  width: 100%;
+  height: 88rpx;
+}
+
+.recommend-panel {
+
+}
+
+.recommend-panel-header {
+}
+
+.recommend-panel-header-image {
+  display: block;
+  width: 100%;
+  height: 80rpx;
+}
+
+.recommend-panel-content {
+  padding: 16rpx 2%;
+  box-sizing: border-box;
+}
+
+.recommend-card {
+  display: flex;
+  min-height: 240rpx;
+  border-radius: 12rpx;
+  background-color: #fff;
+  box-shadow: 0 0 12rpx #d0d0d0;
+}
+
+.recommend-card:not(:last-child) {
+  margin-bottom: 16rpx;
+}
+
+.recommend-card-layout-left {
+  position: relative;
+  flex: 0 0 auto;
+  padding-top: 20rpx;
+  width: 216rpx;
+  box-sizing: border-box;
+}
+
+.recommend-card-layout-right {
+  flex: 1 0 auto;
+  padding-right: 20rpx;
+  width: calc(100% - 216rpx);
+  box-sizing: border-box;
+}
+
+.recommend-card-chart {
+  text-align: center;
+}
+
+.recommend-card-pie-chart .wm-pie-chart-percentage {
+  z-index: 5;
+}
+
+.recommend-card-avatar {
+  position: absolute;
+  top: 32rpx;
+  left: 50%;
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  border: 8rpx solid #fff;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+
+.recommend-card-avatar-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.recommend-card-layout-right-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.recommend-card-layout-right-header::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-bottom: 1px solid #ddd;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.recommend-card-title {
+  flex: 0 0 auto;
+  padding-left: 16rpx;
+  font-size: 28rpx;
+  font-weight: normal;
+  line-height: 72rpx;
+  color: #555;
+}
+
+.recommend-card-right-text {
+  flex: 1 0 auto;
+  font-size: 24rpx;
+  font-weight: normal;
+  text-align: right;
+  line-height: 72rpx;
+  color: #999;
+}
+
+.recommend-card-description {
+  padding: 7rpx 16rpx 0;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  color: #888;
+}
+
+.recommend-card-layout-right-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 6rpx 6rpx 16rpx 0;
+}
+
+.recommend-card-score-label {
+  font-size: 24rpx;
+  color: #555;
+}
+
+.recommend-card-shape {
+  display: block;
+  margin: 0 12rpx;
+  width: 8rpx;
+  height: 18rpx;
+}
+
+.recommend-card-score-wrapper {
+  line-height: 0;
+}
+
+.recommend-card-score {
+  display: inline-block;
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 32rpx;
+  color: #fff;
+}
+
+.recommend-card-score + .recommend-card-score {
+  margin-left: 6rpx;
+}
+
+.recommend-card-score.bg-color-1 {
+  background-color: #e00;
+}
+
+.recommend-card-score.bg-color-2 {
+  background-color: #555;
+}
+
+.recommend-card-score.bg-color-3 {
+  background-color: #00c759;
+}

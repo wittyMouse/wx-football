@@ -1,0 +1,4 @@
+<!--components/wm-radio-group/index.wxml-->
+<view class="wm-radio-group {{extClass}}" style="{{extStyle}}" catch:click="bindClick">
+  <slot></slot>
+</view>

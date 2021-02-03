@@ -1,0 +1,32 @@
+<!--pages/user-center/recharge/index.wxml-->
+<view class="recharge">
+  <wm-navigation-bar title="会员中心" show-back bind:back="bindBackClick" bind:logo="bindLogoClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="recharge-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll">
+      <wm-header ext-class="recharge-header">会员快速充值</wm-header>
+
+      <wm-table class="wm-table">
+        <view class="wm-table-tr">
+          <view class="wm-table-th {{item.radio ? 'radio' : ''}}" wx:for="{{columns}}" wx:key="dataIndex">{{item.label}}</view>
+        </view>
+        <view class="wm-table-tr" wx:for="{{dataSource}}" wx:key="id">
+          <view class="wm-table-td {{column.radio ? 'radio' : ''}}" wx:for="{{columns}}" wx:for-item="column" wx:key="dataIndex">
+            <wm-radio ext-class="wm-table-radio" checked="{{activeKey === item[column.dataIndex]}}" value="{{item[column.dataIndex]}}" bind:click="bindRadioClick" wx:if="{{column.radio}}" />
+            <block wx:else>{{item[column.dataIndex]}}{{column.unit ? column.unit : ''}}</block>
+          </view>
+        </view>
+      </wm-table>
+
+      <!-- <button class="recharge-button" open-type="getUserInfo" bind:getuserinfo="bindGetUserInfo" bind:tap="bindPay">立即购买</button> -->
+      <button class="recharge-button" bind:tap="bindPay">立即购买</button>
+
+    </scroll-view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

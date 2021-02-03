@@ -1,0 +1,14 @@
+<!--components/wm-pie-chart/index.wxml-->
+<view class="wm-pie-chart {{extClass}}" style="{{size ? 'width: ' + size + 'rpx; height: ' + size + 'rpx;' : ''}}">
+  <view class="wm-pie-chart-circle"></view>
+
+  <view class="wm-pie-chart-left">
+    <view class="wm-pie-chart-left-circle {{isAdd ? 'delay-3' : 'delay-0'}}" style="transform: rotate({{leftAngle}}deg); {{size ? 'border-radius: 0 ' + size + 'rpx ' + size + 'rpx 0;' : ''}}"></view>
+  </view>
+
+  <view class="wm-pie-chart-right">
+    <view class="wm-pie-chart-right-circle {{isAdd ? 'delay-0' : 'delay-3'}}" style="transform: rotate({{rightAngle}}deg); {{size ? 'border-radius: ' + size + 'rpx 0 0 ' + size + 'rpx;' : ''}}"></view>
+  </view>
+
+  <view class="wm-pie-chart-percentage">{{percentage}}</view>
+</view>

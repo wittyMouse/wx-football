@@ -1,0 +1,138 @@
+<!--pages/recommend/index.wxml-->
+<view class="recommend">
+  <wm-navigation-bar title="王牌推介" bind:logo="bindLogoClick" bind:car="bindCarClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="recommend-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll">
+
+      <view class="recommend-nav-bar" style="top: {{pageTop}}px">
+        <view class="recommend-nav-item" data-target="1" bind:tap="bindNavClick">至尊精选推荐</view>
+        <view class="recommend-nav-item" data-target="2" bind:tap="bindNavClick">合作机构</view>
+        <view class="recommend-nav-item" data-target="3" bind:tap="bindNavClick">至尊赢利套餐</view>
+      </view>
+
+      <view class="recommend-nav-bar-block"></view>
+
+      <view class="recommend-panel">
+        <view class="recommend-panel-header">
+          <image class="recommend-panel-header-image" src="{{assetsURL}}/zj-title01.png" />
+        </view>
+
+        <view class="recommend-panel-content">
+          <view class="recommend-card" wx:for="{{dataSource1}}" wx:key="id" data-id="{{item.id}}" bind:tap="bindCardClick">
+            <view class="recommend-card-layout-left">
+              <view class="recommend-card-chart">
+                <wm-pie-chart ext-class="recommend-card-pie-chart" value="{{item.winning}}" />
+                <view class="recommend-card-avatar">
+                  <image class="recommend-card-avatar-image" src="{{item.avatar}}" />
+                </view>
+              </view>
+            </view>
+
+            <view class="recommend-card-layout-right">
+              <view class="recommend-card-layout-right-header">
+                <view class="recommend-card-title">{{item.realname}}</view>
+                <view class="recommend-card-right-text">暂无最新推介</view>
+              </view>
+
+              <view class="recommend-card-layout-right-content">
+                <view class="recommend-card-description van-multi-ellipsis--l3">{{item.description}}</view>
+              </view>
+
+              <view class="recommend-card-layout-right-footer">
+                <view class="recommend-card-score-label">近五场成绩</view>
+                <image class="recommend-card-shape" src="{{assetsURL}}/icon-jt02.png" />
+                <view class="recommend-card-score-wrapper">
+                  <view class="recommend-card-score bg-color-{{resultClassMap[score]}}" wx:for="{{item.result}}" wx:for-item="score" wx:key="index">{{resultTextMap[score]}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="recommend-panel">
+        <view class="recommend-panel-header">
+          <image class="recommend-panel-header-image" src="{{assetsURL}}/zj-title02.png" />
+        </view>
+
+        <view class="recommend-panel-content">
+          <view class="recommend-card" wx:for="{{dataSource2}}" wx:key="id" data-id="{{item.id}}" bind:tap="bindCardClick">
+            <view class="recommend-card-layout-left">
+              <view class="recommend-card-chart">
+                <wm-pie-chart ext-class="recommend-card-pie-chart" value="{{item.winning}}" />
+                <view class="recommend-card-avatar">
+                  <image class="recommend-card-avatar-image" src="{{item.avatar}}" />
+                </view>
+              </view>
+            </view>
+
+            <view class="recommend-card-layout-right">
+              <view class="recommend-card-layout-right-header">
+                <view class="recommend-card-title">{{item.realname}}</view>
+                <view class="recommend-card-right-text">暂无最新推介</view>
+              </view>
+
+              <view class="recommend-card-layout-right-content">
+                <view class="recommend-card-description van-multi-ellipsis--l3">{{item.description}}</view>
+              </view>
+
+              <view class="recommend-card-layout-right-footer">
+                <view class="recommend-card-score-label">近五场成绩</view>
+                <image class="recommend-card-shape" src="{{assetsURL}}/icon-jt02.png" />
+                <view class="recommend-card-score-wrapper">
+                  <view class="recommend-card-score bg-color-{{resultClassMap[score]}}" wx:for="{{item.result}}" wx:for-item="score" wx:key="index">{{resultTextMap[score]}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="recommend-panel">
+        <view class="recommend-panel-header">
+          <image class="recommend-panel-header-image" src="{{assetsURL}}/zj-title03.png" />
+        </view>
+
+        <view class="recommend-panel-content">
+          <view class="recommend-card" wx:for="{{dataSource3}}" wx:key="id" data-id="{{item.id}}" bind:tap="bindCardClick">
+            <view class="recommend-card-layout-left">
+              <view class="recommend-card-chart">
+                <wm-pie-chart ext-class="recommend-card-pie-chart" value="{{item.winning}}" />
+                <view class="recommend-card-avatar">
+                  <image class="recommend-card-avatar-image" src="{{item.avatar}}" />
+                </view>
+              </view>
+            </view>
+
+            <view class="recommend-card-layout-right">
+              <view class="recommend-card-layout-right-header">
+                <view class="recommend-card-title">{{item.realname}}</view>
+                <view class="recommend-card-right-text">暂无最新推介</view>
+              </view>
+
+              <view class="recommend-card-layout-right-content">
+                <view class="recommend-card-description van-multi-ellipsis--l3">{{item.description}}</view>
+              </view>
+
+              <view class="recommend-card-layout-right-footer">
+                <view class="recommend-card-score-label">近五场成绩</view>
+                <image class="recommend-card-shape" src="{{assetsURL}}/icon-jt02.png" />
+                <view class="recommend-card-score-wrapper">
+                  <view class="recommend-card-score bg-color-{{resultClassMap[score]}}" wx:for="{{item.result}}" wx:for-item="score" wx:key="index">{{resultTextMap[score]}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </scroll-view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

@@ -1,0 +1,18 @@
+<!--pages/home/components/wm-tabs/index.wxml-->
+<view class="wm-tabs {{extClass}}">
+  <view class="wm-tabs-nav">
+    <view class="wm-tabs-nav-list">
+      <view class="wm-tabs-nav-current" style="{{targetProps.length > 0 ? 'transform: translateX(' + (targetProps[currentIndex].left + targetProps[currentIndex].width / 2) + 'px);}}' : ''}}" wx:if="{{tabList.length > 0}}">
+        <image class="wm-tabs-nav-current-image" src="{{assetsURL}}/icon-jt.png" bind:load="bindImageLoad" />
+      </view>
+
+      <view class="ant-tabs-nav-item {{activeKey === item.key ? 'active' : ''}}" style="{{tabList && tabList.length > 0 ? 'width: ' + (750 / tabList.length) + 'rpx;' : ''}}" wx:for="{{tabList}}" wx:key="key" data-key="{{item.key}}" bind:tap="bindClick">{{item.tab}}</view>
+    </view>
+  </view>
+
+  <view class="wm-tabs-content">
+    <view class="wm-tabs-content-list" style="transform: translateX({{currentIndex * -750}}rpx);">
+      <slot></slot>
+    </view>
+  </view>
+</view>

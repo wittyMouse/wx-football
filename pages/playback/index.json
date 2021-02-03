@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "节目回放",
+  "usingComponents": {
+    "wm-navigation-bar": "/components/wm-navigation-bar/index",
+    "wm-tab-bar": "/components/wm-tab-bar/index",
+    "wm-menu": "/components/wm-menu/index",
+    "wm-float-button-group": "/components/wm-float-button-group/index",
+    "wm-playback-tabs": "./components/wm-playback-tabs/index",
+    "wm-playback-tab-pane": "./components/wm-playback-tab-pane/index",
+    "wm-audio": "./components/wm-audio/index"
+  }
+}

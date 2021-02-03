@@ -1,0 +1,7 @@
+<!--components/wm-popup/index.wxml-->
+<view class="wm-popup-wrapper">
+    <view class="wm-popup-mask {{show ? '': 'hidden'}} {{maskClass}}" style="{{maskStyle}}" bind:tap="bindMaskClick" catch:touchmove="noop" wx:if="{{mask}}"></view>
+    <view class="wm-popup {{safe ? 'wm-popup-safe' : ''}} {{show ? 'show' : ''}} {{extClass}}" style="{{extStyle}}" bind:transitionend="bindTransitionend">
+        <slot></slot>
+    </view>
+</view>

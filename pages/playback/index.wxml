@@ -1,0 +1,32 @@
+<!--pages/playback/index.wxml-->
+<view class="playback">
+  <wm-navigation-bar title="节目回放" bind:logo="bindLogoClick" bind:car="bindCarClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="playback-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll">
+      <wm-playback-tabs activeKey="{{activeKey}}" bind:change="bindTabsChange">
+        <wm-playback-tab-pane tab="{{item}}" key="{{index}}" wx:for="{{dataSource}}" wx:key="index">
+          <view class="playback-list">
+            <view class="playback-list-item" wx:for="{{item.recordList}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex" data-x="{{index}}" data-y="{{subIndex}}" bind:tap="bindClick">
+              <view class="playback-play">
+                <image class="playback-play-image" src="{{assetsURL}}/icon-jt03.png" />
+              </view>
+
+              <text>{{subItem.recordTime}} {{item.itemName}}</text>
+            </view>
+          </view>
+        </wm-playback-tab-pane>
+      </wm-playback-tabs>
+
+      <view class="wm-audio-placeholder" hidden="{{currentAudio === -1}}"></view>
+
+      <wm-audio show="{{currentAudio > -1}}" title="{{audioList[currentAudio].title}}" src="{{audioList[currentAudio].src}}" bind:change="bindAudioChange" />
+    </scroll-view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

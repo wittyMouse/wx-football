@@ -1,0 +1,48 @@
+/* components/wm-checkbox/index.wxss */
+.wm-checkbox {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.wm-checkbox-inner {
+  position: relative;
+  display: inline-block;
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 4rpx;
+  vertical-align: middle;
+}
+
+.wm-checkbox-inner::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 1px solid #000;
+  border-radius: 4rpx;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.wm-checkbox-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #0075ff;
+}
+
+.wm-checkbox-text {
+  display: inline-block;
+  margin-left: 8rpx;
+  font-size: 24rpx;
+  color: #888;
+  line-height: 60rpx;
+  vertical-align: middle;
+}

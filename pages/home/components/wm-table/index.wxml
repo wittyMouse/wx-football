@@ -1,0 +1,16 @@
+<!--pages/home/components/wm-table/index.wxml-->
+<view class="wm-table {{extClass}}">
+  <view class="wm-table-body">
+    <view class="wm-table-tr">
+      <view class="wm-table-th van-ellipsis" wx:for="{{columns}}" wx:for-item="column" wx:key="dataIndex">{{column.label}}</view>
+    </view>
+    <view class="wm-table-tr" wx:for="{{dataSource}}" wx:key="articleId" data-index="{{index}}" bind:tap="bindClick">
+      <view class="wm-table-td van-ellipsis {{column.align ? column.align : ''}}" style="{{column.maxWidth ? 'max-width: ' + column.maxWidth + 'rpx;' : ''}}" wx:for="{{columns}}" wx:for-item="column" wx:key="dataIndex">
+        <view class="article-text">{{item[column.dataIndex]}}{{column.unit ? column.unit : ''}}</view>
+        <view class="article-new" hidden="{{!(column.showNew && item.isNew)}}">
+          <image class="article-new-image" src="{{assetsURL}}/icon-new.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,35 @@
+{
+  "name": "wx-football",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint-staged": "npm run lint-staged:js && npm run lint-staged:style && npm run lint-staged:prettier",
+    "lint-staged:js": "eslint \"**/*.js\"",
+    "lint-staged:style": "stylelint \"**/*.wxss\" --syntax css",
+    "lint-staged:prettier": "prettier --check \"**/*.(js|wxss|json)\"",
+    "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
+    "lint:js": "eslint --fix \"**/*.js\"",
+    "lint:style": "stylelint --fix \"**/*.wxss\" --syntax css",
+    "lint:prettier": "prettier --write \"**/*.(js|wxss|json)\""
+  },
+  "repository": "git@github.com:wittyMouse/wx-football.git",
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "husky": "^4.3.5",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "npm run lint:js",
+    "*.wxss": "npm run lint:style",
+    "*.{js,wxss,json}": "npm run lint:prettier"
+  },
+  "license": "MIT"
+}

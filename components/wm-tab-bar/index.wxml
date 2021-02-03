@@ -1,0 +1,26 @@
+<!--components/wm-tab-bar/index.wxml-->
+<view class="wm-tab-bar wm-tab-bar-safe">
+  <image class="wm-tab-bar-background" src="{{assetsURL}}/bottom-nav-bg.png" />
+
+  <view class="wm-tab-bar-row">
+    <view class="wm-tab-bar-col">
+      <image class="wm-tab-bar-image" src="{{assetsURL}}/icon-m01.png" data-target="link" data-url="/pages/recommend/index" bind:tap="bindClick" />
+    </view>
+
+    <view class="wm-tab-bar-col">
+      <image class="wm-tab-bar-image" src="{{assetsURL}}/icon-m02.png" data-target="link" data-url="/pages/latest-clue/index" bind:tap="bindClick" />
+    </view>
+
+    <view class="wm-tab-bar-col wm-tab-bar-menu">
+      <image class="wm-tab-bar-image" src="{{assetsURL}}/icon-menu.png" data-target="menu" bind:tap="bindClick" />
+    </view>
+
+    <view class="wm-tab-bar-col">
+      <image class="wm-tab-bar-image" src="{{assetsURL}}/icon-m03.png" data-target="link" data-url="/pages/best-news/index" bind:tap="bindClick" />
+    </view>
+
+    <view class="wm-tab-bar-col">
+      <image class="wm-tab-bar-image" src="{{assetsURL}}/icon-m04.png" data-target="link" data-url="/pages/playback/index" bind:tap="bindClick" />
+    </view>
+  </view>
+</view>

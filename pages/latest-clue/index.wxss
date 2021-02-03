@@ -1,0 +1,201 @@
+/* pages/latest-clue/index.wxss */
+.latest-clue-scroll-view {
+  background-color: #ebecf1;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+.latest-clue-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.latest-clue-detail-header-image {
+  display: block;
+  width: 4rpx;
+  height: 32rpx;
+  margin: 0 24rpx;
+}
+
+.latest-clue-detail-header-small-text {
+  font-size: 24rpx;
+  color: #ffbabc;
+}
+
+.latest-clue-author {
+}
+
+.latest-clue-nav-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80rpx;
+  background-color: #fff;
+}
+
+.latest-clue-nav-bar::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-bottom: 1px solid #ccc;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.latest-clue-nav-item {
+  position: relative;
+  margin: 0 8rpx;
+  width: calc(100% / 3 - 16rpx);
+  height: 68rpx;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  text-align: center;
+  line-height: 68rpx;
+  color: #fff;
+  background-color: #e00;
+}
+
+.latest-clue-nav-item::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-radius: 24rpx;
+  border: 1px solid #e00;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.latest-clue-nav-item.active {
+  color: #fff;
+  background-color: #900;
+}
+
+.latest-clue-nav-item.active::after {
+  border: 1px solid #900;
+}
+
+.latest-clue-author-list {
+  position: relative;
+  width: 100%;
+  min-height: 200rpx;
+  padding: 24rpx 0;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.latest-clue-author-list::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border-bottom: 1px solid #ccc;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.latest-clue-author-item {
+  display: inline-block;
+  width: 25%;
+  height: 220rpx;
+}
+
+.latest-clue-author-avatar {
+  margin: 0 auto;
+  width: 60px;
+  height: 60px;
+}
+
+.latest-clue-author-avatar-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.latest-clue-author-name {
+  font-size: 24rpx;
+  text-align: center;
+  color: #555;
+}
+
+.latest-clue-list {
+}
+
+.latest-clue-item {
+  display: flex;
+  padding: 20rpx;
+}
+
+.latest-clue-item:nth-child(odd) {
+  background-color: #fff;
+}
+
+.latest-clue-item-layout-left {
+  flex: 0 0 auto;
+  width: 112rpx;
+}
+
+.latest-clue-item-avatar {
+  display: block;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+}
+
+.latest-clue-item-layout-right {
+  flex: 0 0 auto;
+  width: calc(100% - 112rpx);
+}
+
+.latest-clue-item-content {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.latest-clue-item-title-text {
+  font-size: 28rpx;
+  color: #888;
+}
+
+.latest-clue-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8rpx 0 0;
+}
+
+.latest-clue-item-footer-text {
+  font-size: 24rpx;
+  color: #aaa;
+  line-height: 32rpx;
+}

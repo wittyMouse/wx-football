@@ -1,0 +1,64 @@
+<!--pages/latest-clue/index.wxml-->
+<wxs module="tools">
+  var formatDate = function (val) {
+    if (val) {
+      var temp = val.split(' ')[0].split('-')
+      return temp[1] + '-' + temp[2]
+    }
+    return ''
+  }
+  module.exports = {
+    formatDate: formatDate
+  }
+</wxs>
+
+<view class="latest-clue">
+  <wm-navigation-bar title="贴士专区" bind:logo="bindLogoClick" bind:car="bindCarClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="latest-clue-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll">
+      <wm-header ext-class="latest-clue-header">
+        <view>最新发布</view>
+        <image class="latest-clue-detail-header-image" src="{{assetsURL}}/icon-line.png" />
+        <view class="latest-clue-detail-header-small-text" bind:tap="bindTitleClick">热门线报</view>
+      </wm-header>
+
+      <view class="latest-clue-author">
+        <view class="latest-clue-nav-bar">
+          <view class="latest-clue-nav-item {{picker['1'] ? 'active' : ''}}" data-target="1" bind:tap="bindNavClick">王牌贴士</view>
+        </view>
+
+        <view class="latest-clue-author-list" hidden="{{!picker['1']}}">
+          <view class="latest-clue-author-item" wx:for="{{authorList}}" wx:key="id" data-id="{{item.id}}" bind:tap="bindAuthorClick">
+            <view class="latest-clue-author-avatar">
+              <image class="latest-clue-author-avatar-image" src="{{item.avatar}}" />
+            </view>
+            <view class="latest-clue-author-name">{{item.realname}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="latest-clue-list">
+        <view class="latest-clue-item" wx:for="{{dataSource}}" wx:key="index" data-id="{{item.articleId}}" bind:tap="bindCardClick">
+          <view class="latest-clue-item-layout-left">
+            <image class="latest-clue-item-avatar" src="{{item.avatar}}" />
+          </view>
+          <view class="latest-clue-item-layout-right">
+            <view class="latest-clue-item-content">[{{item.realName}}]<text class="latest-clue-item-title-text" space="nbsp">  {{item.articleTitle}}</text></view>
+            <view class="latest-clue-item-footer">
+              <view class="latest-clue-item-footer-text" style="color: #e00;">所需金币：{{item.amount}}</view>
+              <view class="latest-clue-item-footer-text">时间：{{tools.formatDate(item.publicationTime)}} 点击：{{item.clickNum}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </scroll-view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

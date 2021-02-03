@@ -1,0 +1,5 @@
+<!--templates/index.wxml-->
+
+<template name="wm-divider">
+  <view class="wm-divider"></view>
+</template>

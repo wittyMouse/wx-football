@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "巅峰足球",
+  "usingComponents": {
+    "wm-navigation-bar": "/components/wm-navigation-bar/index",
+    "wm-tab-bar": "/components/wm-tab-bar/index",
+    "wm-menu": "/components/wm-menu/index",
+    "wm-float-button-group": "/components/wm-float-button-group/index",
+    "wm-banner": "./components/wm-banner/index",
+    "wm-tabs": "./components/wm-tabs/index",
+    "wm-tab-item": "./components/wm-tab-item/index",
+    "wm-pie-chart": "/components/wm-pie-chart/index",
+    "wm-table": "./components/wm-table/index"
+  }
+}

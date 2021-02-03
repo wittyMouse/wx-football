@@ -1,0 +1,15 @@
+<!--pages/home/components/wm-banner/index.wxml-->
+<view class="wm-banner">
+  <view class="wm-banner-indicator-dots" hidden="{{bannerList.length < 2}}">
+    <view class="wm-banner-indicator-dots-item {{current === index ? 'active' : ''}}" wx:for="{{bannerList}}" wx:key="id"></view>
+  </view>
+
+  <view class="wm-banner-button-prev" data-type="prev" bind:tap="bindClick" hidden="{{bannerList.length < 2}}"></view>
+  <view class="wm-banner-button-next" data-type="next" bind:tap="bindClick" hidden="{{bannerList.length < 2}}"></view>
+
+  <swiper class="wm-banner-swiper" circular current="{{current}}" autoplay="{{autoplay}}" bind:change="bindChange">
+    <swiper-item class="wm-banner-swiper-item" wx:for="{{bannerList}}" wx:key="id">
+      <image class="wm-banner-swiper-image" src="{{item.imageUrl}}" data-index="{{index}}" bindtap="bindBannerClick" />
+    </swiper-item>
+  </swiper>
+</view>

@@ -1,0 +1,87 @@
+<!--pages/latest-clue/detail/index.wxml-->
+<view class="latest-clue-detail">
+  <wm-navigation-bar title="贴士专区" show-back show-back bind:back="bindBackClick" bind:logo="bindLogoClick" />
+
+  <wm-float-button-group bind:click="bindFloatButtonClick" />
+
+  <view class="container" style="padding-top: {{pageTop}}px;">
+    <scroll-view class="latest-clue-detail-scroll-view" style="height: {{pageHeight}}px;" scroll-y scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="bindScroll">
+      <wm-header ext-class="latest-clue-detail-header">{{dataSource.realname}}</wm-header>
+
+      <view class="latest-clue-detail-article">
+        <view class="article-card">
+          <view class="article-card-header">
+            <view class="article-card-title">{{dataSource.articleTitle}}</view>
+            <view class="article-card-description">时间:{{dataSource.publicationTime}} 作者:{{dataSource.realname}} 点击:{{dataSource.clickNum}} 次</view>
+          </view>
+
+          <view class="article-card-content">
+            <block wx:if="{{dataSource.amount > 0}}">
+              <block wx:if="{{!isLogin}}">
+                <view class="article-card-article">
+                  <view class="article-card-article-line-2">
+                    <view class="">这篇文档需要 <text style="color: #e00;">{{dataSource.amount}}</text> 金币 才能访问</view>
+                    <view class="">请先 <text style="color: #e00;">登录</text> </view>
+                  </view>
+                  <button class="article-card-button" data-target="login" bind:tap="bindButtonClick">登录</button>
+                </view>
+              </block>
+              <block wx:else>
+                <block wx:if="{{!dataSource.isBuy}}">
+                  <block wx:if="{{userInfo.balance >= dataSource.amount}}">
+                    <view class="article-card-article">
+                      <view class="article-card-article-line-1">
+                        <view>该内容为收费内容</view>
+                        <view>欢迎订阅！</view>
+                      </view>
+                      <view class="article-card-article-line-2">
+                        <view class="">这篇文档需要 <text style="color: #e00;">{{dataSource.amount}}</text> 金币 才能访问</view>
+                        <view class="">你目前拥有金币：<text style="color: #e00;">{{userInfo.balance}}</text> 个</view>
+                      </view>
+                      <button class="article-card-button" data-target="buy" bind:tap="bindButtonClick">立即订购</button>
+                    </view>
+                  </block>
+                  <block wx:else>
+                    <view class="article-card-article">
+                      <view class="article-card-article-line-2">
+                        <view class="">这篇文档需要 <text style="color: #e00;">{{dataSource.amount}}</text> 金币 才能访问</view>
+                        <view class="">你的金币现有 {{userInfo.balance}}，<text style="color: #e00;">不足购买，请先充值</text></view>
+                      </view>
+                      <button class="article-card-button" data-target="recharge" bind:tap="bindButtonClick">去充值</button>
+                    </view>
+                  </block>
+                </block>
+                <block wx:else>
+                  <rich-text nodes="{{dataSource.articleURL}}"></rich-text>
+                </block>
+              </block>
+            </block>
+            <block wx:else>
+              <rich-text nodes="{{dataSource.articleURL}}"></rich-text>
+            </block>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="tips-modal-wrapper" wx:if="{{showTipsModal}}">
+    <view class="tips-modal-mask" bind:tap="bindTipsModalClose"></view>
+    <view class="tips-modal">
+      <view class="tips-modal-header">
+        <view class="tips-modal-title">购买提示</view>
+      </view>
+      <view class="tips-modal-content">
+        <view class="">购买该文章需要 {{dataSource.amount}} 金币</view>
+        <view class="">你目前拥有金币：{{userInfo.balance}} 个</view>
+      </view>
+      <view class="tips-modal-footer">
+        <view class="tips-modal-button" bind:tap="bindBuyClick">确定购买</view>
+      </view>
+    </view>
+  </view>
+
+  <wm-menu show="{{showMenu}}" adjust-position="{{adjustPosition}}" bind:login="bindLogin" bind:logout="bindLogout" bind:close="bindClose" />
+
+  <wm-tab-bar route="{{route}}" bind:menu="bindTriggerClick" />
+</view>

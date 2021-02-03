@@ -1,0 +1,24 @@
+<!--pages/playback/components/wm-audio/index.wxml-->
+<view class="wm-audio wm-audio-safe {{extClass}}" hidden="{{!show}}">
+    <view class="wm-audio-slider">
+        <view class="wm-audio-slider-rail"></view>
+        <view class="wm-audio-slider-track" style="width: {{trackWidth}}px" bind:tap="handleSliderClick"></view>
+        <view class="wm-audio-slider-step" bind:tap="handleSliderClick"></view>
+        <view class="wm-audio-slider-handle" style="left: {{trackWidth}}px" catch:touchstart="handleTouchStart" catch:touchmove="handleTouchMove" catch:touchend="handleTouchEnd"></view>
+    </view>
+
+    <view class="wm-audio-title">{{title}}</view>
+
+    <view class="wm-audio-control">
+        <view class="wm-audio-control-prev">
+            <image class="wm-audio-control-image" src="{{assetsURL}}/prev.png" data-target="prev" bind:tap="bindControlClick" />
+        </view>
+        <view class="wm-audio-control-play">
+            <image class="wm-audio-control-image" src="{{assetsURL}}/play.png" data-target="play" bind:tap="bindControlClick" hidden="{{!paused}}" />
+            <image class="wm-audio-control-image" src="{{assetsURL}}/pause.png" data-target="pause" bind:tap="bindControlClick" hidden="{{paused}}" />
+        </view>
+        <view class="wm-audio-control-next">
+            <image class="wm-audio-control-image" src="{{assetsURL}}/next.png" data-target="next" bind:tap="bindControlClick" />
+        </view>
+    </view>
+</view>

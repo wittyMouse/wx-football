@@ -1,0 +1,22 @@
+<!--components/wm-navigation-bar/index.wxml-->
+<view class="wm-navigation-bar" style="height: {{navigationBarHeight}}px;">
+  <image class="wm-navigation-bar-background" style="top: {{statusBarHeight}}px;" src="{{assetsURL}}/top-nav-bg.png" />
+
+  <view class="wm-navigation-bar-status" style="height: {{statusBarHeight}}px;"></view>
+
+  <view class="wm-navigation-bar-back" wx:if="{{showBack}}">
+    <image class="wm-navigation-bar-back-image" src="{{assetsURL}}/icon-back.png" data-target="back" bind:tap="bindClick" />
+  </view>
+  <view class="wm-navigation-bar-logo" wx:else>
+    <image class="wm-navigation-bar-logo-image" src="{{assetsURL}}/logo.png" data-target="logo" bind:tap="bindClick" />
+  </view>
+
+  <view class="wm-navigation-bar-title">{{title}}</view>
+
+  <view class="wm-navigation-bar-logo" wx:if="{{showBack}}">
+    <image class="wm-navigation-bar-logo-image" src="{{assetsURL}}/logo.png" data-target="logo" bind:tap="bindClick" />
+  </view>
+  <view class="wm-navigation-bar-car" wx:else>
+    <image class="wm-navigation-bar-car-image" src="{{assetsURL}}/icon-cart.png" data-target="car" bind:tap="bindClick" />
+  </view>
+</view>
